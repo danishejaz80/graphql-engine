@@ -28,10 +28,10 @@ import {
   loadLatestServerVersion,
   loadServerVersion,
 } from './Actions';
-import { Help, ProPopup } from './components/';
+// import { Help, ProPopup } from './components/';
 import { UpdateVersion } from './components/UpdateVersion';
-import logo from './images/white-logo.svg';
-import LoveSection from './LoveSection';
+// import logo from './images/white-logo.svg';
+// import LoveSection from './LoveSection';
 import styles from './Main.scss';
 import NotificationSection from './NotificationSection';
 import * as tooltips from './Tooltips';
@@ -232,7 +232,7 @@ class Main extends React.Component {
       location,
       migrationModeProgress,
       currentSchema,
-      serverVersion,
+      // serverVersion,
       metadata,
       console_opts,
       currentSource,
@@ -240,10 +240,10 @@ class Main extends React.Component {
       schemaList,
     } = this.props;
 
-    const {
-      proClickState: { isProClicked },
-      isPopUpOpen,
-    } = this.state;
+    // const {
+    //   proClickState: { isProClicked },
+    //   isPopUpOpen,
+    // } = this.state;
 
     const appPrefix = '';
 
@@ -336,7 +336,7 @@ class Main extends React.Component {
             <Link
               className={
                 currentActiveBlock === block ||
-                (isDefault && currentActiveBlock === '')
+                  (isDefault && currentActiveBlock === '')
                   ? styles.navSideBarActive
                   : ''
               }
@@ -365,12 +365,13 @@ class Main extends React.Component {
               <div className={styles.logoParent}>
                 <div className={styles.logo}>
                   <Link to="/">
-                    <img className="img img-responsive" src={logo} />
+                    {/* <img className="img img-responsive" src={logo} /> */}
+                    <div className={styles.logoCustom}>Pantheon</div>
                   </Link>
                 </div>
-                <Link to="/">
+                {/* <Link to="/">
                   <div className={styles.project_version}>{serverVersion}</div>
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className={styles.header_items}>
@@ -414,12 +415,11 @@ class Main extends React.Component {
             </div>
             <div
               id="dropdown_wrapper"
-              className={`${styles.clusterInfoWrapper} ${
-                this.state.isDropdownOpen ? 'open' : ''
-              }`}
+              className={`${styles.clusterInfoWrapper} ${this.state.isDropdownOpen ? 'open' : ''
+                }`}
             >
               {getAdminSecretSection()}
-              <div
+              {/* <div
                 className={`${styles.headerRightNavbarBtn} ${styles.proWrapper}`}
                 onClick={this.onProIconClick}
               >
@@ -431,20 +431,20 @@ class Main extends React.Component {
                   CLOUD
                 </span>
                 {isPopUpOpen && <ProPopup toggleOpen={this.toggleProPopup} />}
-              </div>
+              </div> */}
               <Link to="/settings">
                 <div className={styles.headerRightNavbarBtn}>
                   {getMetadataStatusIcon()}
                   {getSettingsSelectedMarker()}
                 </div>
               </Link>
-              <Help isSelected={currentActiveBlock === 'support'} />
+              {/* <Help isSelected={currentActiveBlock === 'support'} /> */}
               <NotificationSection
                 isDropDownOpen={this.state.isDropdownOpen}
                 closeDropDown={this.closeDropDown}
                 toggleDropDown={this.toggleDropDown}
               />
-              {!this.state.loveConsentState.isDismissed ? (
+              {/* {!this.state.loveConsentState.isDismissed ? (
                 <div
                   id="dropdown_wrapper"
                   className={`${this.state.isLoveSectionOpen ? 'open' : ''}`}
@@ -454,7 +454,7 @@ class Main extends React.Component {
                     toggleLoveSection={this.toggleLoveSection}
                   />
                 </div>
-              ) : null}
+              ) : null} */}
             </div>
           </div>
           <div className={styles.main + ' container-fluid'}>
