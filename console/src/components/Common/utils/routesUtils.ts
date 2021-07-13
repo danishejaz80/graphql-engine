@@ -140,6 +140,14 @@ export const getFunctionModifyRoute = (
   return `${getFunctionBaseRoute(schemaName, source, functionName)}/modify`;
 };
 
+export const getFunctionBrowseRoute = (
+  schemaName: string,
+  source: string,
+  functionName: string
+) => {
+  return `${getFunctionBaseRoute(schemaName, source, functionName)}/browse`;
+};
+
 // Action route utils
 
 export const getActionsBaseRoute = () => {

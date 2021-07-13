@@ -669,19 +669,19 @@ class Schema extends Component {
               <h2 className={`${styles.headerText} ${styles.display_inline}`}>
                 {currentSchema}
               </h2>
-              {getCreateBtn()}
+              {/* {getCreateBtn()} */}
             </div>
             <hr />
-            {getCurrentSchemaSection()}
-            <hr />
+            {/* {getCurrentSchemaSection()}
+            <hr /> */}
             {getUntrackedTablesSection()}
-            {isFeatureSupported('tables.relationships.track') &&
+            {/* {isFeatureSupported('tables.relationships.track') &&
               getUntrackedRelationsSection()}
             {getUntrackedFunctionsSection(
               isFeatureSupported('functions.track.enabled')
             )}
             {isFeatureSupported('functions.nonTrackableFunctions.enabled') &&
-              getNonTrackableFunctionsSection()}
+              getNonTrackableFunctionsSection()} */}
             <hr />
           </div>
         </div>

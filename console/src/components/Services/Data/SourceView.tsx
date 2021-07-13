@@ -142,7 +142,7 @@ const SourceView: React.FC<Props> = props => {
                       >
                         View
                       </Button>
-                      <Button
+                      {/* <Button
                         color="white"
                         size="xs"
                         className={styles.mar_small_left}
@@ -159,7 +159,7 @@ const SourceView: React.FC<Props> = props => {
                         >
                           <i className="fa fa-trash" aria-hidden="true" />
                         </Button>
-                      ) : null}
+                      ) : null} */}
                       <div
                         key={key}
                         className={`${styles.display_inline} ${styles.padd_small_left}`}

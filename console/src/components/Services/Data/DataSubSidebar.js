@@ -123,21 +123,21 @@ const DataSubSidebar = props => {
       const sourceTables = !source.tables
         ? []
         : source.tables.map(data => {
-            const is_enum = data.is_enum ? true : false;
-            return {
-              name: data.table.name,
-              schema: data.table.schema,
-              type: 'table',
-              is_enum: is_enum,
-            };
-          });
+          const is_enum = data.is_enum ? true : false;
+          return {
+            name: data.table.name,
+            schema: data.table.schema,
+            type: 'table',
+            is_enum: is_enum,
+          };
+        });
       const sourceFunctions = !source.functions
         ? []
         : source.functions.map(data => ({
-            name: data.function.name,
-            schema: data.function.schema,
-            type: 'function',
-          }));
+          name: data.function.name,
+          schema: data.function.schema,
+          type: 'function',
+        }));
 
       const schemaGroups = groupByKey(
         [...sourceTables, ...sourceFunctions],
@@ -162,9 +162,9 @@ const DataSubSidebar = props => {
         schemaGroups[schema].forEach(table => {
           const is_view =
             schemaInfo?.[source.name]?.[schema]?.[table.name]?.table_type ===
-              'view' ||
+            'view' ||
             schemaInfo?.[source.name]?.[schema]?.[table.name]?.table_type ===
-              'materialized_view';
+            'materialized_view';
           let type = table.type;
           if (is_view) type = 'view';
           if (table.is_enum) type = 'enum';
@@ -253,9 +253,9 @@ const DataSubSidebar = props => {
           >
             <div>Databases ({databasesCount})</div>
             {schemaLoading ||
-            databaseLoading ||
-            sidebarLoadingState ||
-            isFetching ? (
+              databaseLoading ||
+              sidebarLoadingState ||
+              isFetching ? (
               <div className={styles.inline_display}>
                 <Spinner className={styles.spinner} />
               </div>
@@ -267,7 +267,7 @@ const DataSubSidebar = props => {
             )}
           </div>
         </div>
-        {migrationMode && (
+        {/* {migrationMode && (
           <div
             className={`col-xs-4 text-center ${styles.padd_left_remove} ${styles.sidebarCreateTable}`}
           >
@@ -281,15 +281,15 @@ const DataSubSidebar = props => {
               </Button>
             </Link>
           </div>
-        )}
+        )} */}
       </div>
       <ul className={styles.subSidebarListUL} data-test="table-links">
         <div
           style={
             schemaLoading ||
-            databaseLoading ||
-            sidebarLoadingState ||
-            isFetching
+              databaseLoading ||
+              sidebarLoadingState ||
+              isFetching
               ? loadStyle
               : { pointerEvents: 'auto' }
           }

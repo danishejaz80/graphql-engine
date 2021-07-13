@@ -6,7 +6,7 @@ import {
   getSchemaBaseRoute,
   getTableBrowseRoute,
   getTableModifyRoute,
-  getFunctionModifyRoute,
+  getFunctionBrowseRoute,
 } from '../../../Common/utils/routesUtils';
 import { dataSource, currentDriver } from '../../../../dataSources';
 import {
@@ -75,20 +75,12 @@ const addExistingTableSql = (name, customSchema, skipRouting = false) => {
           t => t.table_name === tableName && t.table_schema === currentSchema
         );
         const isTableType = dataSource.isTable(newTable);
-        const nextRoute =
-          isTableType && currentDriver !== 'bigquery'
-            ? getTableModifyRoute(
-                currentSchema,
-                currentDataSource,
-                tableName,
-                isTableType
-              )
-            : getTableBrowseRoute(
-                currentSchema,
-                currentDataSource,
-                tableName,
-                isTableType
-              );
+        const nextRoute = getTableBrowseRoute(
+          currentSchema,
+          currentDataSource,
+          tableName,
+          isTableType
+        );
         if (!skipRouting) {
           dispatch(_push(nextRoute));
         }
@@ -153,7 +145,7 @@ const addExistingFunction = (
       dispatch(exportMetadata());
       if (!skipRouting) {
         dispatch(
-          _push(getFunctionModifyRoute(currentSchema, currentDataSource, name))
+          _push(getFunctionBrowseRoute(currentSchema, currentDataSource, name))
         );
       }
       dispatch(setSidebarLoading(false));

@@ -393,7 +393,7 @@ class Main extends React.Component {
                       : getDataSourceBaseRoute(currentSource)
                     : '/data'
                 )}
-                {getSidebarItem(
+                {/* {getSidebarItem(
                   'Actions',
                   'fa-cogs',
                   tooltips.actions,
@@ -410,7 +410,7 @@ class Main extends React.Component {
                   'fa-cloud',
                   tooltips.events,
                   '/events/data/manage'
-                )}
+                )} */}
               </ul>
             </div>
             <div
@@ -432,18 +432,18 @@ class Main extends React.Component {
                 </span>
                 {isPopUpOpen && <ProPopup toggleOpen={this.toggleProPopup} />}
               </div> */}
-              <Link to="/settings">
+              {/* <Link to="/settings">
                 <div className={styles.headerRightNavbarBtn}>
                   {getMetadataStatusIcon()}
                   {getSettingsSelectedMarker()}
                 </div>
-              </Link>
+              </Link> */}
               {/* <Help isSelected={currentActiveBlock === 'support'} /> */}
-              <NotificationSection
+              {/* <NotificationSection
                 isDropDownOpen={this.state.isDropdownOpen}
                 closeDropDown={this.closeDropDown}
                 toggleDropDown={this.toggleDropDown}
-              />
+              /> */}
               {/* {!this.state.loveConsentState.isDismissed ? (
                 <div
                   id="dropdown_wrapper"

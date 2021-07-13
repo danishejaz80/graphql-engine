@@ -120,7 +120,7 @@ const DatabaseListItem: React.FC<DatabaseListItemProps> = ({
         >
           {reloading ? 'Reloading...' : 'Reload'}
         </Button>
-        <Button
+        {/* <Button
           size="xs"
           color="white"
           onClick={() => {
@@ -143,7 +143,7 @@ const DatabaseListItem: React.FC<DatabaseListItemProps> = ({
           style={{ marginLeft: '10px' }}
         >
           {removing ? 'Removing...' : 'Remove'}
-        </Button>
+        </Button> */}
         <div
           className={`${styles.flexColumn} ${styles.container_max_width} ${styles.displayFlexContainer} ${styles.add_pad_left}`}
         >
@@ -162,7 +162,7 @@ const DatabaseListItem: React.FC<DatabaseListItemProps> = ({
           </ToolTip>
         )}
       </div>
-      <div className={`${styles.db_large_string_break_words}`}>
+      {/* <div className={`${styles.db_large_string_break_words}`}>
         {showUrl ? (
           typeof dataSource.url === 'string' ? (
             dataSource.url
@@ -195,7 +195,7 @@ const DatabaseListItem: React.FC<DatabaseListItemProps> = ({
             />
           </ToolTip>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -275,14 +275,14 @@ const ManageDatabase: React.FC<ManageDatabaseProps> = ({
             >
               Data Manager
             </h2>
-            <Button
+            {/* <Button
               color="yellow"
               size="md"
               className={styles.add_mar_right}
               onClick={onClickConnectDB}
             >
               Connect Database
-            </Button>
+            </Button> */}
           </div>
         </div>
         <div className={styles.manage_db_content}>

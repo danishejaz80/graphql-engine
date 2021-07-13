@@ -505,9 +505,9 @@ const RawSQL = ({
         <div
           className={`${styles.padd_left_remove} ${styles.add_mar_bottom} col-xs-8`}
         >
-          {getTrackThisSection()}
+          {/* {getTrackThisSection()}
           {getMetadataCascadeSection()}
-          {getMigrationSection()}
+          {getMigrationSection()} */}
 
           {isFeatureSupported('rawSQL.statementTimeout') && (
             <StatementTimeout

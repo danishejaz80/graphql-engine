@@ -108,14 +108,13 @@ const TableHeader = ({
             {getTab(
               'browse',
               getTableBrowseRoute(tableSchema, source, tableName, isTableType),
-              `Browse Rows ${
-                isFeatureSupported('tables.browse.aggregation')
-                  ? countDisplay
-                  : ''
+              `Browse Rows ${isFeatureSupported('tables.browse.aggregation')
+                ? countDisplay
+                : ''
               }`,
               'table-browse-rows'
             )}
-            {isFeatureSupported('tables.insert.enabled') &&
+            {/* {isFeatureSupported('tables.insert.enabled') &&
               !readOnlyMode &&
               isTableType &&
               getTab(
@@ -171,7 +170,7 @@ const TableHeader = ({
                   isTableType
                 ),
                 'Edit Row'
-              )}
+              )} */}
           </ul>
         </div>
         <div className="clearfix" />

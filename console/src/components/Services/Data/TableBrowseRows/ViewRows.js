@@ -434,7 +434,7 @@ const ViewRows = props => {
             'trigger',
             triggerIcon,
             triggerTitle,
-            () => {}
+            () => { }
           );
 
           return (
@@ -478,9 +478,9 @@ const ViewRows = props => {
             key={rowIndex}
             className={`${styles.tableCenterContent} ${styles.overflowUnset}`}
           >
-            {cloneButton}
+            {/* {cloneButton}
             {editButton}
-            {deleteButton}
+            {deleteButton} */}
             {expandButton}
             {getManualTriggersButton()}
           </div>

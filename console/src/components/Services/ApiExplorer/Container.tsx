@@ -17,9 +17,9 @@ const Container: React.FC<ContainerProps> = props => {
   return (
     <>
       <Helmet title="API Explorer | Hasura" />
-      <div id="left-bar">
+      {/* <div id="left-bar">
         <TopBar location={location} />
-      </div>
+      </div> */}
       <div id="right-bar">{children || <ApiExplorer {...props} />}</div>
     </>
   );
