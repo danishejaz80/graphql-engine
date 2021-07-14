@@ -72,7 +72,7 @@ const SourceView: React.FC<Props> = props => {
             <h2 className={`${styles.headerText} ${styles.display_inline}`}>
               {currentDataSource}
             </h2>
-            {isFeatureSupported('schemas.create.enabled') ? (
+            {/* {isFeatureSupported('schemas.create.enabled') ? (
               <span>
                 {!isCreateActive ? (
                   <Button
@@ -124,7 +124,7 @@ const SourceView: React.FC<Props> = props => {
                   </div>
                 )}
               </span>
-            ) : null}
+            ) : null} */}
           </div>
           <div>
             <hr />

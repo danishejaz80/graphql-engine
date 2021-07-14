@@ -289,7 +289,7 @@ class ApiRequest extends Component {
                 />
               </div>
             </div>
-            <div
+            {/* <div
               className={`${styles.display_flex} ${styles.graphiqlModeToggle} ${styles.cursorPointer}`}
               onClick={toggleGraphiqlMode}
             >
@@ -308,7 +308,7 @@ class ApiRequest extends Component {
                   'Toggle to point this GraphiQL to a relay-compliant GraphQL API served at /v1beta1/relay'
                 }
               />
-            </div>
+            </div> */}
           </div>
         </CollapsibleToggle>
       );
@@ -737,8 +737,8 @@ class ApiRequest extends Component {
             claimData =
               claimFormat === 'stringified_json'
                 ? generateValidNameSpaceData(
-                    JSON.parse(payload[claimNameSpace])
-                  )
+                  JSON.parse(payload[claimNameSpace])
+                )
                 : generateValidNameSpaceData(payload[claimNameSpace]);
           } catch (e) {
             console.error(e);

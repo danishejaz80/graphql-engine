@@ -672,17 +672,18 @@ class Schema extends Component {
               {/* {getCreateBtn()} */}
             </div>
             <hr />
+            <div>Click on tables from sidebar to view their  data.</div>
             {/* {getCurrentSchemaSection()}
-            <hr /> */}
+            <hr />
             {getUntrackedTablesSection()}
-            {/* {isFeatureSupported('tables.relationships.track') &&
+            {isFeatureSupported('tables.relationships.track') &&
               getUntrackedRelationsSection()}
             {getUntrackedFunctionsSection(
               isFeatureSupported('functions.track.enabled')
             )}
             {isFeatureSupported('functions.nonTrackableFunctions.enabled') &&
-              getNonTrackableFunctionsSection()} */}
-            <hr />
+              getNonTrackableFunctionsSection()}
+            <hr /> */}
           </div>
         </div>
       </RightContainer>

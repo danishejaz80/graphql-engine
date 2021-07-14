@@ -354,11 +354,11 @@ class Main extends React.Component {
 
     return (
       <div className={styles.container}>
-        <Onboarding
+        {/* <Onboarding
           dispatch={dispatch}
           console_opts={console_opts}
           metadata={metadata.metadataObject}
-        />
+        /> */}
         <div className={styles.flexRow}>
           <div className={styles.sidebar}>
             <div className={styles.header_logo_wrapper}>
