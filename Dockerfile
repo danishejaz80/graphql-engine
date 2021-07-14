@@ -10,7 +10,7 @@ RUN apt-get update && \
     default-libmysqlclient-dev libghc-pcre-light-dev libkrb5-dev \
     && curl -sL https://deb.nodesource.com/setup_${node_ver} | bash - \
     && apt-get install -y nodejs && \
-    wget libwww-perl build-essential git autoconf python3 libgmp-dev libncurses-dev -y && \
+    apt-get install -y wget libwww-perl build-essential git autoconf python3 libgmp-dev libncurses-dev -y && \
     wget 'https://storage.googleapis.com/pub/gsutil.tar.gz' && \
     tar xfz gsutil.tar.gz -C $HOME && \
     export PATH=${PATH}:$HOME/gsutil
@@ -22,4 +22,4 @@ WORKDIR /graphql/server
 RUN ln -s cabal.project.dev cabal.project.local \
     && cabal new-update \
     && cabal new-build
-CMD cabal new-run -- exe:graphql-engine --database-url="${DBSTRING}" serve --enable-console --console-assets-dir=../console/static/dist
+CMD cabal new-run -- exe:graphql-engine serve --enable-console --console-assets-dir=../console/static/dist

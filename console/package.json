@@ -18,7 +18,7 @@
     "watch-client": "node -r dotenv/config webpack/webpack-dev-server.js",
     "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "start-prod": "cross-env NODE_PATH=./src PORT=8080 NODE_ENV=production node ./bin/server.js",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=3072 webpack --progress -p --colors --display-error-details --config webpack/prod.config.js",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 webpack --progress -p --colors --display-error-details --config webpack/prod.config.js",
     "build-lib": "webpack --progress -p --colors --display-error-details --config webpack/bundle.config.js",
     "server-build": "make server-build",
     "build-unused": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js --json | webpack-unused -s src",
