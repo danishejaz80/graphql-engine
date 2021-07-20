@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Dispatch, ReduxState } from '../../../types';
@@ -24,7 +24,13 @@ interface Props {
 const SourceView: React.FC<Props> = props => {
   const { currentDataSource, schemaList, dispatch } = props;
   const [isCreateActive, setIsCreateActive] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [createSchemaName, setCreateSchemaName] = useState('');
+
+  useEffect(() => {
+    if(!!schemaList?.length) handleView(schemaList[0])
+    else setLoading(false)
+  }, [])
 
   const handleCreateSchema = () => {
     const schemaName = createSchemaName;
@@ -51,6 +57,14 @@ const SourceView: React.FC<Props> = props => {
     dispatch(deleteSchema(schema, successCb));
   };
 
+  if (loading){
+    return (
+      <div style={{ paddingTop: '20px', paddingLeft: '15px' }}>
+        Loading...
+      </div>
+    );
+  }
+  
   return (
     <div>
       <div style={{ paddingTop: '20px', paddingLeft: '15px' }}>

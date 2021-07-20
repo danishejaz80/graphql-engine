@@ -36,13 +36,14 @@ import {
   currentDriver,
   isFeatureSupported,
 } from '../../../../dataSources';
+
 import { isEmpty } from '../../../Common/utils/jsUtils';
 import { getConfirmation } from '../../../Common/utils/jsUtils';
 import ToolTip from '../../../Common/Tooltip/Tooltip';
 import KnowMoreLink from '../../../Common/KnowMoreLink/KnowMoreLink';
 import RawSqlButton from '../Common/Components/RawSqlButton';
 import styles from '../../../Common/Common.scss';
-import { getConsistentFunctions } from '../../../../metadata/selector';
+import { getConsistentFunctions, getSourcesFromMetadata } from '../../../../metadata/selector';
 import { RightContainer } from '../../../Common/Layout/RightContainer';
 import { TrackableFunctionsList } from './FunctionsList';
 import { getTrackableFunctions } from './utils';
@@ -212,6 +213,12 @@ class Schema extends Component {
     this.props.dispatch(createNewSchema(schemaName, successCb));
   };
 
+  componentDidMount() {
+    const { sources, dispatch } = this.props;
+    const tableNames = sources?.[0]?.tables.map(m => m.table.name) || []
+    if (!!tableNames.length) dispatch(_push(`/data/default/schema/public/tables/${tableNames[0]}/`));
+  }
+
   render() {
     const {
       schema,
@@ -224,7 +231,9 @@ class Schema extends Component {
       nonTrackableFunctions,
       trackedFunctions,
       currentDataSource,
+      sources
     } = this.props;
+
     const getSectionHeading = (headingText, tooltip, actionElement = null) => {
       return (
         <div>
@@ -702,6 +711,7 @@ Schema.propTypes = {
 const mapStateToProps = state => ({
   schema: state.tables.allSchemas,
   schemaList: state.tables.schemaList,
+  sources: getSourcesFromMetadata(state),
   migrationMode: state.main.migrationMode,
   readOnlyMode: state.main.readOnlyMode,
   untrackedRelations: state.tables.untrackedRelations,
