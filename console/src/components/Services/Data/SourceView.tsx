@@ -28,9 +28,9 @@ const SourceView: React.FC<Props> = props => {
   const [createSchemaName, setCreateSchemaName] = useState('');
 
   useEffect(() => {
-    if(!!schemaList?.length) handleView(schemaList[0])
-    else setLoading(false)
-  }, [])
+    if (!!schemaList?.length) handleView(schemaList[0]);
+    else setLoading(false);
+  }, []);
 
   const handleCreateSchema = () => {
     const schemaName = createSchemaName;
@@ -57,19 +57,17 @@ const SourceView: React.FC<Props> = props => {
     dispatch(deleteSchema(schema, successCb));
   };
 
-  if (loading){
+  if (loading) {
     return (
-      <div style={{ paddingTop: '20px', paddingLeft: '15px' }}>
-        Loading...
-      </div>
+      <div style={{ paddingTop: '20px', paddingLeft: '15px' }}>Loading...</div>
     );
   }
-  
+
   return (
     <div>
       <div style={{ paddingTop: '20px', paddingLeft: '15px' }}>
         <div className={styles.padd_left}>
-          <Helmet title="Source - Data | Hasura" />
+          <Helmet title="Source - Data | Pantheon" />
           <div>
             <BreadCrumb
               breadCrumbs={[

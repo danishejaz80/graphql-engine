@@ -777,7 +777,7 @@ div.CodeMirror-lint-tooltip > * + * {
   border-bottom: 1px solid #ccc;
   padding: 10px 20px;
   position: relative;
-  color: #ffc627;
+  color: #ffffff;
 }
 .modalTitle {
   font-size: 18px;
@@ -860,10 +860,10 @@ div.CodeMirror-lint-tooltip > * + * {
 }
 
 .topLevelNodesWrapper ul li.active {
-  color: #fd9540;
+  color: #257fb3;
 }
 .topLevelNodesWrapper ul li:hover {
-  color: #e2701a;
+  color: #257fb3;
 }
 .plansWrapper {
   height: 50%;

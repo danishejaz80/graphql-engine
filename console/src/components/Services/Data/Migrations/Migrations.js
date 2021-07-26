@@ -41,7 +41,7 @@ const Migrations = ({ dispatch, migrationMode }) => {
     <div
       className={`${styles.clear_fix} ${styles.padd_left} ${styles.padd_top}`}
     >
-      <Helmet title="Migrations - Data | Hasura" />
+      <Helmet title="Migrations - Data | Pantheon" />
       <div className={styles.subHeader}>
         <h2 className={`${styles.heading_text} ${styles.remove_pad_bottom}`}>
           Database Migrations

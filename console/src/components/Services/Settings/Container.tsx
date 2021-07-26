@@ -22,7 +22,7 @@ const Container: React.FC<ContainerProps> = ({
   children,
   metadata,
 }) => {
-  const helmet = 'Settings | Hasura';
+  const helmet = 'Settings | Pantheon';
 
   const sidebar = <Sidebar location={location} metadata={metadata} />;
 

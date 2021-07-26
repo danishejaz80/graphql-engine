@@ -141,7 +141,7 @@ const Login: React.FC<ConnectInjectedProps> = ({ dispatch }) => {
     <div className={`${styles.mainWrapper} container-fluid`}>
       <div className={`${styles.container} container`} id="login">
         <div className={styles.loginCenter}>
-          <Helmet title="Login | Hasura" />
+          <Helmet title="Login | Pantheon" />
           <div className={styles.hasuraLogo}>
             <img src={hasuraLogo} alt="Hasura" />
           </div>

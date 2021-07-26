@@ -251,7 +251,7 @@
 
             .apiCollectionPost {
               text-align: left;
-              color: #fd9540;
+              color: #257fb3;
               font-size: 12px;
               font-weight: bold;
               padding-left: 15px;
@@ -353,12 +353,12 @@
       font-size: 14px;
 
       a {
-        color: #fec53d;
+        color: #2d9bdb;
         text-decoration: underline;
       }
 
       a:hover {
-        color: #fec53d;
+        color: #2d9bdb;
         text-decoration: underline;
       }
 
@@ -388,7 +388,7 @@
             border: 0;
             padding: 10px 12px;
             background-color: #f9f9f9;
-            color: #fd9540;
+            color: #257fb3;
             font-size: 14px;
             font-weight: bold;
             text-align: left;
@@ -415,24 +415,25 @@
           width: 100%;
           text-align: center;
           height: 39px;
-          color: #606060;
+          color: #ffffff;
           font-weight: bold;
           border-radius: 5px;
-          background-color: #fec53d;
-          border: 1px solid #fec53d;
+          background-color: #2d9bdb;
+          border: 1px solid #2d9bdb;
           /*
           background-color: #FFCA27;
           border: 1px solid #FFCA27;
           */
           &:hover {
-            background-color: #f2b130;
+            background-color: #257fb3;
+            color: #ffffff;
           }
         }
 
         /*
         button:hover {
-          border: 1px solid #F2B130;
-          background-color: #F2B130;
+          border: 1px solid #257fb3;
+          background-color: #257fb3;
         }
         */
       }
@@ -860,7 +861,7 @@ label {
   margin-right: 8px;
   text-decoration: none;
   &.sectionLinkActive {
-    padding-top: 14px; 
+    padding-top: 14px;
     padding-right: 12px;
     padding-bottom: 6px;
     padding-left: 12px;

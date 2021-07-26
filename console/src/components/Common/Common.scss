@@ -136,7 +136,7 @@ table tbody tr th {
     }
 
     .active {
-      // border-left: 5px solid #FFC627;
+      // border-left: 5px solid #2d9bdb;
       font-weight: bold;
       color: #333;
       text-decoration: none;
@@ -800,17 +800,18 @@ code {
 }
 
 .yellow_button {
-  background-color: #fec53d;
+  background-color: #2d9bdb;
   border-radius: 3px;
-  color: #606060;
-  border: 1px solid #fec53d;
+  color: #ffffff;
+  border: 1px solid #2d9bdb;
   padding: 5px 10px;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.5;
 
   &:hover {
-    background-color: #f2b130;
+    background-color: #257fb3;
+    color: #ffffff;
   }
 }
 
@@ -823,7 +824,8 @@ code {
 
 .yellow_button:focus {
   outline: none;
-  background-color: #f2b130;
+  background-color: #257fb3;
+  color: #ffffff;
 }
 
 .default_button {
@@ -864,22 +866,23 @@ code {
 }
 
 .exploreButton {
-  background-color: #fec53d;
+  background-color: #2d9bdb;
   border-radius: 5px;
-  color: #000;
-  border: 1px solid #fec53d;
+  color: #ffffff;
+  border: 1px solid #2d9bdb;
   padding: 5px 10px;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.5;
 
   &:hover {
-    background-color: #f2b130;
-    color: #fff;
+    background-color: #257fb3;
+    color: #ffffff;
   }
 
   &:focus {
-    background-color: #f2b130;
+    background-color: #257fb3;
+    color: #ffffff;
   }
 }
 
@@ -1120,7 +1123,7 @@ code {
         border-radius: 4px;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
-        border-top: 3px solid #ffc627;
+        border-top: 3px solid #2d9bdb;
 
         a {
           color: #333;
@@ -1173,7 +1176,7 @@ code {
       border-radius: 4px;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
-      border-top: 3px solid #ffc627;
+      border-top: 3px solid #2d9bdb;
 
       a {
         color: #333;

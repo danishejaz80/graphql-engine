@@ -445,7 +445,7 @@ class PermissionsSummary extends Component {
             <thead>
               <tr>{getBackBtn('currTable')}</tr>
             </thead>
-            <tbody>{getTablesRows(() => {}, true, true)}</tbody>
+            <tbody>{getTablesRows(() => { }, true, true)}</tbody>
           </table>
         );
       };
@@ -502,7 +502,7 @@ class PermissionsSummary extends Component {
               return (
                 <div className={styles.text_center}>
                   {actionPermission &&
-                  actionPermission.allow_aggregations === true
+                    actionPermission.allow_aggregations === true
                     ? fullAccessDisplay
                     : noAccessDisplay}
                 </div>
@@ -988,7 +988,7 @@ class PermissionsSummary extends Component {
         <div
           className={`${styles.clear_fix} ${styles.padd_left} ${styles.fit_content}`}
         >
-          <Helmet title="Permissions Summary | Hasura" />
+          <Helmet title="Permissions Summary | Pantheon" />
           <div className={styles.add_mar_bottom}>
             <h2 className={styles.heading_text}>
               Permissions summary - {currentSchema}

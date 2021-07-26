@@ -41,7 +41,7 @@ class Container extends React.Component {
       </ul>
     );
 
-    const helmet = 'Actions | Hasura';
+    const helmet = 'Actions | Pantheon';
 
     const leftContainer = <LeftContainer>{sidebarContent}</LeftContainer>;
 

@@ -33,8 +33,8 @@
   width: 100%;
   z-index: 10;
   text-align: center;
-  background-color: #ffc627;
-  color: #43495a;
+  background-color: #2d9bdb;
+  color: #ffffff;
   padding: 14.5px 10px;
 
   .updateBanner {
@@ -233,7 +233,7 @@
   transition: all 0.2s;
   padding: 15px 60px;
   color: #fff;
-  background-color: #fec53d;
+  background-color: #2d9bdb;
   -webkit-animation: pulse 1s ease infinite;
   -moz-animation: pulse 1s ease infinite;
   -ms-animation: pulse 1s ease infinite;
@@ -388,7 +388,7 @@
     font-size: 25px;
     font-family: 'Gudea';
     font-weight: 400;
-    color: #fec53d;
+    color: #2d9bdb;
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -431,7 +431,7 @@
 
 .sidebar {
   color: #dedede;
-  background-color: #43495a;
+  background-color: #000000;
   font-family: 'Gudea';
   font-weight: 700;
   text-transform: uppercase;
@@ -550,14 +550,14 @@
     }
 
     .navSideBarActive {
-      border-bottom: 4px solid #ffc627;
+      border-bottom: 4px solid #2d9bdb;
 
       i {
-        color: #ffc627;
+        color: #2d9bdb;
       }
 
       p {
-        color: #ffc627;
+        color: #2d9bdb;
       }
     }
 
@@ -920,7 +920,7 @@
 
   .selected {
     bottom: 0;
-    background: #ffc627;
+    background: #2d9bdb;
     position: absolute;
     z-index: 999999999;
     height: 4px;
@@ -948,13 +948,13 @@
   padding: 15px;
 
   a {
-    //color: #FFC627;
+    //color: #2d9bdb;
     color: #ffffff;
     text-decoration: none;
   }
 
   .secureSectionSymbol {
-    //color: #FFC627 !important;
+    //color: #2d9bdb !important;
     color: inherit !important;
   }
 }

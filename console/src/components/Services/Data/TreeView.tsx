@@ -22,7 +22,7 @@ type SourceItem = {
 };
 
 const activeStyle = {
-  color: '#fd9540',
+  color: '#257fb3',
 };
 
 type LeafItemsViewProps = {

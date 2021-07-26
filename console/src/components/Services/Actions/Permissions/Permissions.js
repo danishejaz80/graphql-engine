@@ -84,7 +84,7 @@ const Permissions = ({
               (permissionEdit.isNewRole && permissionEdit.newRole === role));
           let editIcon = '';
           let className = '';
-          let onClick = () => {};
+          let onClick = () => { };
           if (role !== 'admin' && !readOnlyMode) {
             editIcon = getEditIcon();
 
@@ -164,7 +164,7 @@ const Permissions = ({
   return (
     <div>
       <Helmet
-        title={`Permissions - ${currentAction.name} - Actions | Hasura`}
+        title={`Permissions - ${currentAction.name} - Actions | Pantheon`}
       />
       {getPermissionsTable()}
       <div className={`${styles.add_mar_bottom}`}>

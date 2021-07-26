@@ -176,7 +176,9 @@ const Permissions: React.FC<PermissionsProps> = ({
 
   return (
     <div className={`col-xs-8 ${styles.modifyWrapper}`}>
-      <Helmet title={`Permission Custom Function - ${functionName} | Hasura`} />
+      <Helmet
+        title={`Permission Custom Function - ${functionName} | Pantheon`}
+      />
       <CommonTabLayout
         appPrefix={urlWithSource}
         currentTab="permissions"

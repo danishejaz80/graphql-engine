@@ -228,13 +228,13 @@ class GraphiQLWrapper extends Component {
           //   onClick: routeToREST(graphiqlProps),
           // },
         ];
-        if (mode === 'graphql') {
-          buttons.push({
-            label: 'Derive action',
-            title: 'Derive action for the given mutation',
-            onClick: deriveActionFromOperation,
-          });
-        }
+        // if (mode === 'graphql') {
+        //   buttons.push({
+        //     label: 'Derive action',
+        //     title: 'Derive action for the given mutation',
+        //     onClick: deriveActionFromOperation,
+        //   });
+        // }
         return buttons.map(b => {
           return <GraphiQL.Button key={b.label} {...b} />;
         });

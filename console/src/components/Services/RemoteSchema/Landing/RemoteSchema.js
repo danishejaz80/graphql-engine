@@ -42,7 +42,7 @@ class RemoteSchema extends React.Component {
         className={`${styles.padd_left_remove} ${styles.remoteSchemaWrapper} container-fluid ${styles.padd_top}`}
       >
         <div className={styles.padd_left}>
-          <Helmet title={`${pageTitle}s | Hasura`} />
+          <Helmet title={`${pageTitle}s | Pantheon`} />
           <div>
             <div className={styles.display_flex}>
               <h2 className={`${styles.headerText} ${styles.inline_block}`}>
