@@ -432,12 +432,12 @@ class Main extends React.Component {
                 </span>
                 {isPopUpOpen && <ProPopup toggleOpen={this.toggleProPopup} />}
               </div> */}
-              {/* <Link to="/settings">
+              <Link to="/settings/metadata-status">
                 <div className={styles.headerRightNavbarBtn}>
                   {getMetadataStatusIcon()}
                   {getSettingsSelectedMarker()}
                 </div>
-              </Link> */}
+              </Link>
               {/* <Help isSelected={currentActiveBlock === 'support'} /> */}
               {/* <NotificationSection
                 isDropDownOpen={this.state.isDropdownOpen}

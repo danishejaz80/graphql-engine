@@ -43,7 +43,10 @@ import ToolTip from '../../../Common/Tooltip/Tooltip';
 import KnowMoreLink from '../../../Common/KnowMoreLink/KnowMoreLink';
 import RawSqlButton from '../Common/Components/RawSqlButton';
 import styles from '../../../Common/Common.scss';
-import { getConsistentFunctions, getSourcesFromMetadata } from '../../../../metadata/selector';
+import {
+  getConsistentFunctions,
+  getSourcesFromMetadata,
+} from '../../../../metadata/selector';
 import { RightContainer } from '../../../Common/Layout/RightContainer';
 import { TrackableFunctionsList } from './FunctionsList';
 import { getTrackableFunctions } from './utils';
@@ -215,8 +218,9 @@ class Schema extends Component {
 
   componentDidMount() {
     const { sources, dispatch } = this.props;
-    const tableNames = sources?.[0]?.tables.map(m => m.table.name) || []
-    if (!!tableNames.length) dispatch(_push(`/data/default/schema/public/tables/${tableNames[0]}/`));
+    const tableNames = sources?.[0]?.tables.map(m => m.table.name) || [];
+    if (!!tableNames.length)
+      dispatch(_push(`/data/pantheon/schema/public/tables/${tableNames[0]}/`));
   }
 
   render() {
@@ -231,7 +235,7 @@ class Schema extends Component {
       nonTrackableFunctions,
       trackedFunctions,
       currentDataSource,
-      sources
+      sources,
     } = this.props;
 
     const getSectionHeading = (headingText, tooltip, actionElement = null) => {
@@ -681,7 +685,7 @@ class Schema extends Component {
               {/* {getCreateBtn()} */}
             </div>
             <hr />
-            <div>Click on tables from sidebar to view their  data.</div>
+            <div>Click on tables from sidebar to view their data.</div>
             {/* {getCurrentSchemaSection()}
             <hr />
             {getUntrackedTablesSection()}

@@ -67,10 +67,9 @@ const MetadataStatus = ({ dispatch, metadata }) => {
               )}"`;
             } else if (ico.type === 'remote_schema') {
               name = ico.definition.name;
-              let url = `"${
-                ico.definition.definition.url ||
+              let url = `"${ico.definition.definition.url ||
                 ico.definition.definition.url_from_env
-              }"`;
+                }"`;
               if (ico.definition.definition.url_from_env) {
                 url = `the url from the value of env var ${url}`;
               }
@@ -127,38 +126,28 @@ const MetadataStatus = ({ dispatch, metadata }) => {
           </div>
           <div className={styles.add_mar_top}>
             <div className={styles.add_mar_top_small}>
-              The following objects in your metadata are inconsistent because
-              they reference database or remote-schema entities which do not
-              seem to exist or are conflicting
+              <h5>We're sorry that you have experienced this error.</h5>
+              <h5>We're working on fixing it as quickly as possible.</h5>
             </div>
-            <div className={styles.add_mar_top_small}>
+            {/* <div className={styles.add_mar_top_small}>
               The GraphQL API has been generated using only the consistent parts
               of the metadata
             </div>
             <div className={styles.add_mar_top_small}>
               The console might also not be able to display these inconsistent
               objects
-            </div>
+            </div> */}
           </div>
         </div>
-        <div className={styles.add}>{inconsistentObjectsTable()}</div>
+        {/* <div className={styles.add}>{inconsistentObjectsTable()}</div>
         <div
           className={`${metaDataStyles.wd50percent} ${metaDataStyles.add_mar_top}`}
         >
-          To resolve these inconsistencies, you can do one of the following:
-          <ul className={styles.add_mar_top_small}>
-            <li>
-              To delete all the inconsistent objects from the metadata, click
-              the "Delete all" button
-            </li>
-            <li>
-              If you want to manage these objects on your own, please do so and
-              click on the "Reload Metadata" button to check if the
-              inconsistencies have been resolved
-            </li>
-          </ul>
-        </div>
-        <div
+          If you want to manage these objects on your own, please do so and
+          click on the "Reload Metadata" button to check if the
+          inconsistencies have been resolved
+        </div> */}
+        {/* <div
           className={`${metaDataStyles.display_flex} ${metaDataStyles.add_mar_top_small}`}
         >
           <Button
@@ -175,7 +164,7 @@ const MetadataStatus = ({ dispatch, metadata }) => {
             buttonText="Reload metadata"
             shouldReloadRemoteSchemas={isInconsistentRemoteSchemaPresent}
           />
-        </div>
+        </div> */}
       </div>
     );
   };
@@ -216,7 +205,7 @@ const MetadataStatus = ({ dispatch, metadata }) => {
       <div
         className={`${styles.clear_fix} ${styles.padd_left} ${styles.padd_top} ${metaDataStyles.metadata_wrapper} container-fluid`}
       >
-        <h2 className={styles.headerText}>Hasura Metadata Status</h2>
+        <h2 className={styles.headerText}>Pantheon Metadata Status</h2>
         {content()}
       </div>
     </div>

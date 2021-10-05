@@ -37,12 +37,12 @@ interface SectionData {
 const Sidebar: React.FC<SidebarProps> = ({ location, metadata }) => {
   const sectionsData: SectionData[] = [];
 
-  sectionsData.push({
-    key: 'actions',
-    link: '/settings/metadata-actions',
-    dataTestVal: 'metadata-actions-link',
-    title: 'Metadata Actions',
-  });
+  // sectionsData.push({
+  //   key: 'actions',
+  //   link: '/settings/metadata-actions',
+  //   dataTestVal: 'metadata-actions-link',
+  //   title: 'Metadata Actions',
+  // });
 
   const consistentIcon =
     metadata.inconsistentObjects.length === 0 ? <CheckIcon /> : <CrossIcon />;
@@ -59,41 +59,41 @@ const Sidebar: React.FC<SidebarProps> = ({ location, metadata }) => {
     ),
   });
 
-  sectionsData.push({
-    key: 'allow-list',
-    link: '/settings/allow-list',
-    dataTestVal: 'allow-list-link',
-    title: 'Allow List',
-  });
+  // sectionsData.push({
+  //   key: 'allow-list',
+  //   link: '/settings/allow-list',
+  //   dataTestVal: 'allow-list-link',
+  //   title: 'Allow List',
+  // });
 
-  const adminSecret = getAdminSecret();
+  // const adminSecret = getAdminSecret();
 
-  if (
-    adminSecret &&
-    globals.consoleMode !== CLI_CONSOLE_MODE &&
-    globals.consoleType !== 'cloud'
-  ) {
-    sectionsData.push({
-      key: 'logout',
-      link: '/settings/logout',
-      dataTestVal: 'logout-page-link',
-      title: 'Logout (clear admin-secret)',
-    });
-  }
+  // if (
+  //   adminSecret &&
+  //   globals.consoleMode !== CLI_CONSOLE_MODE &&
+  //   globals.consoleType !== 'cloud'
+  // ) {
+  //   sectionsData.push({
+  //     key: 'logout',
+  //     link: '/settings/logout',
+  //     dataTestVal: 'logout-page-link',
+  //     title: 'Logout (clear admin-secret)',
+  //   });
+  // }
 
-  sectionsData.push({
-    key: 'about',
-    link: '/settings/about',
-    dataTestVal: 'about-link',
-    title: 'About',
-  });
+  // sectionsData.push({
+  //   key: 'about',
+  //   link: '/settings/about',
+  //   dataTestVal: 'about-link',
+  //   title: 'About',
+  // });
 
-  sectionsData.push({
-    key: 'inherited-roles',
-    link: '/settings/inherited-roles',
-    dataTestVal: 'inherited-roles-link',
-    title: 'Inherited Roles',
-  });
+  // sectionsData.push({
+  //   key: 'inherited-roles',
+  //   link: '/settings/inherited-roles',
+  //   dataTestVal: 'inherited-roles-link',
+  //   title: 'Inherited Roles',
+  // });
 
   const currentLocation = location.pathname;
 
