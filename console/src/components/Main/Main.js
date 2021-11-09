@@ -42,6 +42,7 @@ import {
   setLoveConsentState,
   setProClickState,
 } from './utils';
+import FirebaseLogin from './FirebaseLogin';
 
 export const updateRequestHeaders = props => {
   const { requestHeaders, dispatch } = props;
@@ -336,7 +337,7 @@ class Main extends React.Component {
             <Link
               className={
                 currentActiveBlock === block ||
-                  (isDefault && currentActiveBlock === '')
+                (isDefault && currentActiveBlock === '')
                   ? styles.navSideBarActive
                   : ''
               }
@@ -359,6 +360,7 @@ class Main extends React.Component {
           console_opts={console_opts}
           metadata={metadata.metadataObject}
         /> */}
+        <FirebaseLogin show />
         <div className={styles.flexRow}>
           <div className={styles.sidebar}>
             <div className={styles.header_logo_wrapper}>
@@ -415,8 +417,9 @@ class Main extends React.Component {
             </div>
             <div
               id="dropdown_wrapper"
-              className={`${styles.clusterInfoWrapper} ${this.state.isDropdownOpen ? 'open' : ''
-                }`}
+              className={`${styles.clusterInfoWrapper} ${
+                this.state.isDropdownOpen ? 'open' : ''
+              }`}
             >
               {getAdminSecretSection()}
               {/* <div

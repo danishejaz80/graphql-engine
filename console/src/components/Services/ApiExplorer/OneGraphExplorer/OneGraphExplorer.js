@@ -2,6 +2,7 @@ import React from 'react';
 import { getIntrospectionQuery, buildClientSchema } from 'graphql';
 import GraphiQLExplorer from 'graphiql-explorer';
 import { setLoading } from '../Actions';
+import firebase from 'firebase';
 
 import {
   makeDefaultArg,
@@ -24,6 +25,13 @@ import {
   showWarningNotification,
 } from '../../Common/Notification';
 import requestAction from '../../../../utils/requestAction';
+
+const PORTAL_SUBDOMAIN = 'portal';
+const getSubdomain = (host, pathQuery) => {
+  if (pathQuery && pathQuery !== PORTAL_SUBDOMAIN) return pathQuery;
+  if (host.includes('localhost')) return PORTAL_SUBDOMAIN;
+  return host.split('.')[0];
+};
 
 class OneGraphExplorer extends React.Component {
   state = {
@@ -113,7 +121,7 @@ class OneGraphExplorer extends React.Component {
         }),
       })
     )
-      .then(result => {
+      .then(async result => {
         if (result.errors && result.errors.length > 0) {
           const errorMessage = result.errors[0].message;
           dispatch(
@@ -131,6 +139,60 @@ class OneGraphExplorer extends React.Component {
         let clientSchema = null;
         try {
           clientSchema = buildClientSchema(result.data);
+
+          const searchParams = new URLSearchParams(window.location.search);
+          const subdomain = getSubdomain(
+            window.location.hostname,
+            searchParams.get('subdomain') || ''
+          );
+
+          const location = () => {
+            if (subdomain.includes('dc-portal')) return 'DC';
+            if (subdomain.includes('north-carolina-portal'))
+              return 'North Carolina';
+            if (subdomain.includes('south-bend-portal')) return 'South Bend';
+            if (subdomain.includes('miami-portal')) return 'Miami';
+            if (subdomain.includes('longbeach-portal')) return 'Long Beach, CA';
+            if (subdomain.includes('santa-cruz-portal')) return 'Santa Cruz';
+            return PORTAL_SUBDOMAIN;
+          };
+
+          let datasetTables = [];
+          if (location() !== PORTAL_SUBDOMAIN) {
+            const datasets = await firebase
+              .firestore()
+              .collection('datasets')
+              .where('location', '==', location())
+              .get();
+
+            if (firebase.auth().currentUser?.uid) {
+              const customDatasets = await firebase
+                .firestore()
+                .collection('datasets')
+                .where('userId', '==', firebase.auth().currentUser?.uid || '')
+                .get();
+
+              datasetTables = [...datasets.docs, ...customDatasets.docs].map(
+                m => m.data().tableName || null
+              );
+            } else {
+              datasetTables = datasets.docs.map(
+                m => m.data().tableName || null
+              );
+            }
+          }
+
+          if (datasetTables.length) {
+            const fields = Object.fromEntries(
+              Object.entries(
+                clientSchema?._queryType?._fields || {}
+              ).filter(([key]) =>
+                datasetTables.includes(key.replace('_aggregate', ''))
+              )
+            );
+
+            clientSchema._queryType._fields = fields;
+          }
         } catch (err) {
           console.error(err);
           dispatch(

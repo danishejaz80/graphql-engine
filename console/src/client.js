@@ -2,7 +2,7 @@
  * THIS IS THE ENTRY POINT FOR THE CLIENT, JUST LIKE server.js IS THE ENTRY POINT FOR THE SERVER.
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
@@ -10,6 +10,10 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useBasename } from 'history';
+
+import firebase from 'firebase';
+
+import FIREBASE_CONFIG from './firebase-config';
 
 import getRoutes from './routes';
 
@@ -58,6 +62,18 @@ const Main = () => {
   const routeHistory = useBasename(() => history)({
     basename: globals.urlPrefix,
   });
+
+  const [firebaseInitialized, setFirebaseInitialized] = useState(false);
+  useEffect(() => {
+    if (firebaseInitialized) return;
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+      setFirebaseInitialized(true);
+    } catch (err) {
+      console.error(err);
+    }
+  }, [firebaseInitialized]);
+
   return (
     <Router
       history={routeHistory}

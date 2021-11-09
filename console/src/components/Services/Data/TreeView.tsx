@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import firebase from 'firebase';
 import styles from '../../Common/Layout/LeftSubSidebar/LeftSubSidebar.scss';
 import {
   getFunctionModifyRoute,
@@ -23,6 +24,13 @@ type SourceItem = {
 
 const activeStyle = {
   color: '#257fb3',
+};
+
+const PORTAL_SUBDOMAIN = 'portal';
+const getSubdomain = (host: string, pathQuery: string) => {
+  if (pathQuery && pathQuery !== PORTAL_SUBDOMAIN) return pathQuery;
+  if (host.includes('localhost')) return PORTAL_SUBDOMAIN;
+  return host.split('.')[0];
 };
 
 type LeafItemsViewProps = {
@@ -140,8 +148,71 @@ const SchemaItemsView: React.FC<SchemaItemsViewProps> = ({
   databaseLoading,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [listItems, setListItems] = useState<SourceItem[] | undefined>(
+    item?.children
+  );
   const showActiveStyle =
     pathname === `/data/${currentSource}/schema/${item.name}`;
+
+  useEffect(() => {
+    (async () => {
+      const searchParams = new URLSearchParams(window.location.search);
+      const subdomain = getSubdomain(
+        window.location.hostname,
+        searchParams.get('subdomain') || ''
+      );
+
+      const location = () => {
+        if (subdomain.includes('dc-portal')) return 'DC';
+        if (subdomain.includes('north-carolina-portal'))
+          return 'North Carolina';
+        if (subdomain.includes('south-bend-portal')) return 'South Bend';
+        if (subdomain.includes('miami-portal')) return 'Miami';
+        if (subdomain.includes('longbeach-portal')) return 'Long Beach, CA';
+        if (subdomain.includes('santa-cruz-portal')) return 'Santa Cruz';
+        return PORTAL_SUBDOMAIN;
+      };
+
+      if (location() !== PORTAL_SUBDOMAIN) {
+        let datasetTables: string[] = [];
+
+        const datasets = await firebase
+          .firestore()
+          .collection('datasets')
+          .where('location', '==', location())
+          .get();
+
+        if (firebase.auth().currentUser?.uid) {
+          const customDatasets = await firebase
+            .firestore()
+            .collection('datasets')
+            .where('userId', '==', firebase.auth().currentUser?.uid || '')
+            .get();
+
+          datasetTables = [...datasets.docs, ...customDatasets.docs].map(
+            m => m.data().tableName || null
+          );
+        } else {
+          datasetTables = datasets.docs.map(m => m.data().tableName || null);
+        }
+
+        const finalItems: SourceItem[] = listItems?.filter(f => {
+          if (f.type === 'function') return false;
+          if (f.type !== 'table') return true;
+          if (datasetTables.includes(f.name)) return true;
+          return false;
+        }) as SourceItem[];
+
+        setListItems(finalItems);
+      } else {
+        const finalItems: SourceItem[] = listItems?.filter(
+          f => f.type !== 'function'
+        ) as SourceItem[];
+
+        setListItems(finalItems);
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     setIsOpen(isActive);
@@ -162,8 +233,7 @@ const SchemaItemsView: React.FC<SchemaItemsViewProps> = ({
       >
         <span
           className={
-            item.children &&
-            `${styles.title} ${isOpen ? '' : styles.titleClosed}`
+            listItems && `${styles.title} ${isOpen ? '' : styles.titleClosed}`
           }
         >
           <i className={`${isOpen ? 'fa fa-folder-open' : 'fa fa-folder'}`} />{' '}
@@ -171,9 +241,9 @@ const SchemaItemsView: React.FC<SchemaItemsViewProps> = ({
         </span>
       </div>
       <ul className={styles.reducedChildPadding}>
-        {isOpen && item.children ? (
+        {isOpen && listItems ? (
           !databaseLoading ? (
-            item.children.map((child, key) => (
+            listItems.map((child, key) => (
               <li key={key}>
                 <LeafItemsView
                   item={child}

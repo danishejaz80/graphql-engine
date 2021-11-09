@@ -220,7 +220,7 @@ class Schema extends Component {
     const { sources, dispatch } = this.props;
     const tableNames = sources?.[0]?.tables.map(m => m.table.name) || [];
     if (!!tableNames.length)
-      dispatch(_push(`/data/pantheon/schema/public/tables/${tableNames[0]}/`));
+      dispatch(_push(`/data/default/schema/public/tables/${tableNames[0]}/`));
   }
 
   render() {

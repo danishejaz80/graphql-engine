@@ -23,11 +23,11 @@ export const store = configureStore({
       immutableCheck: false,
     }).concat([routerMiddleware(browserHistory), telemetryMiddleware]);
 
-    if (__DEVELOPMENT__) {
-      middlewares = middlewares.concat(
-        createLogger({ diff: true, duration: true })
-      );
-    }
+    // if (__DEVELOPMENT__) {
+    //   middlewares = middlewares.concat(
+    //     createLogger({ diff: true, duration: true })
+    //   );
+    // }
 
     return middlewares;
   },
